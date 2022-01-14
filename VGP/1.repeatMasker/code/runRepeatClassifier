@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH -J RepeatClassifier
+#SBATCH -p day
+#SBATCH --mem=75G
+#SBATCH -t 0-05:00
+#SBATCH -N 1
+#SBATCH -e errs/RepeatClassifier-%j.err
+#SBATCH -o outs/RepeatClassifier-%j.out
+
+cons=$1
+stk=$2
+
+~/project/software/RepeatModeler-2.0.2a/RepeatClassifier -consensi $cons -stockholm $stk
